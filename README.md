@@ -11,6 +11,7 @@
 
 ### Agent Pipeline
 
+```mermaid
 flowchart TD
     A["🖊️ User Input\ntext prompt or image"] --> B;
     B["Nemotron\nNVIDIA NIM\nIntent Parser\nguided_json constrained decoding\n~$0.0001 / call"] --> C;
@@ -25,6 +26,7 @@ flowchart TD
     style E fill:#EA580C,color:#fff;
     style F fill:#0369A1,color:#fff;
     style G fill:#1D4ED8,color:#fff;
+```
 
 ### Image-to-Design Pipeline
 
