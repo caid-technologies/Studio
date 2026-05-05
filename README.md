@@ -11,29 +11,20 @@
 
 ### Agent Pipeline
 
-```mermaid
 flowchart TD
-    A["🖊️ User Input\ntext prompt or image"] -> B
-
-    B["Nemotron\nNVIDIA NIM\nIntent Parser\nguided_json constrained decoding\n~$0.0001 / call"] -> C
-
-    C["Claude Logic\nAnthropic\nTree Builder\n3–12 node parametric graph\n~$0.002 / call"] -> D
-
-    D["Claude Code\nAnthropic\nCode Generator\nBuild123d Python with math & loops\n~$0.003 / call"] -> E
-
-    E["Build123d Compiler\nOpenCascade BREP kernel\nPython → Binary STL\nAuto-heals fillet failures\n$0 local execution"] -> F
-
-    F["Scoring Engine\nDeterministic algorithms\nProportion · Symmetry · Features · Params\nDrives iteration loop\n$0 no LLM"] -> G
-
-    G["🎨 Babylon.js Viewport\nReal-time 3D render + STL export"] 
-
-    style B fill:#76b900,color:#fff
-    style C fill:#6B46C1,color:#fff
-    style D fill:#6B46C1,color:#fff
-    style E fill:#EA580C,color:#fff
-    style F fill:#0369A1,color:#fff
-    style G fill:#1D4ED8,color:#fff
-```
+    A["🖊️ User Input\ntext prompt or image"] --> B;
+    B["Nemotron\nNVIDIA NIM\nIntent Parser\nguided_json constrained decoding\n~$0.0001 / call"] --> C;
+    C["Claude Logic\nAnthropic\nTree Builder\n3–12 node parametric graph\n~$0.002 / call"] --> D;
+    D["Claude Code\nAnthropic\nCode Generator\nBuild123d Python with math & loops\n~$0.003 / call"] --> E;
+    E["Build123d Compiler\nOpenCascade BREP kernel\nPython → Binary STL\nAuto-heals fillet failures\n$0 local execution"] --> F;
+    F["Scoring Engine\nDeterministic algorithms\nProportion · Symmetry · Features · Params\nDrives iteration loop\n$0 no LLM"] --> G;
+    G["🎨 Babylon.js Viewport\nReal-time 3D render + STL export"];
+    style B fill:#76b900,color:#fff;
+    style C fill:#6B46C1,color:#fff;
+    style D fill:#6B46C1,color:#fff;
+    style E fill:#EA580C,color:#fff;
+    style F fill:#0369A1,color:#fff;
+    style G fill:#1D4ED8,color:#fff;
 
 ### Image-to-Design Pipeline
 
