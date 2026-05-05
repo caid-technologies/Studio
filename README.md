@@ -12,7 +12,7 @@
 [![Anthropic](https://img.shields.io/badge/Anthropic-Claude%20Sonnet-blueviolet)](https://anthropic.com)
 [![Babylon.js](https://img.shields.io/badge/3D-Babylon.js-red)](https://babylonjs.com)
 
-**Describe a 3D object in words or images. Get an editable, self-improving parametric model.**
+**Describe a 3D CAD in words or images. Get an editable, self-improving parametric model.**
 
 [Quick Start](#getting-started) · [Architecture](#architecture) · [API Reference](docs/api-reference.md) · [Challenges](CHALLENGES.md) · [Contributing](CONTRIBUTING.md)
 
@@ -106,7 +106,7 @@ Image (photo/sketch/render)
 ┌──────────────────────────────────────┐
 │  Stage 1.1: Preprocessing (sharp)    │
 │  • Resize to max 1024px              │
-│  • Convert to JPEG 85%              │
+│  • Convert to JPEG 85%               │
 │  • Normalize for VLM consumption     │
 └──────────────────┬───────────────────┘
                    │
