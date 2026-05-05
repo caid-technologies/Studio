@@ -195,18 +195,6 @@ pnpm dev
 # Open http://localhost:3000
 ```
 
-### API Keys
-
-| Variable | Where to get it | Used for |
-|:---|:---|:---|
-| `NVIDIA_API_KEY` | [build.nvidia.com](https://build.nvidia.com) | Nemotron intent parser + Vision |
-| `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) | Primary LLM for tree builder + code gen |
-| `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com) | Fallback LLM (GPT-4o) |
-| `GOOGLE_GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) | Fallback LLM (Gemini 2.0 Flash) |
-| `OPENROUTER_API_KEY` | [openrouter.ai](https://openrouter.ai) | Last-resort multi-model routing |
-
----
-
 ## Performance & Cost
 
 | Metric | Value |
