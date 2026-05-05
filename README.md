@@ -1,50 +1,29 @@
 # Studio
 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Build123d](https://img.shields.io/badge/CAD-Build123d%20%2B%20OpenCascade-orange)](https://github.com/gumyr/build123d)
-[![NVIDIA NIM](https://img.shields.io/badge/NVIDIA-NIM%20API-76b900?logo=nvidia&logoColor=white)](https://build.nvidia.com)
-[![Anthropic](https://img.shields.io/badge/Anthropic-Claude%20Sonnet-blueviolet)](https://anthropic.com)
-[![Babylon.js](https://img.shields.io/badge/3D-Babylon.js-red)](https://babylonjs.com)
-
-
-[Quick Start](#getting-started) · [Architecture](#architecture) · [API Reference](docs/api-reference.md) · [Challenges](CHALLENGES.md) · [Contributing](CONTRIBUTING.md)
+[Quick Start](#getting-started) · [Architecture](#architecture) · [API Reference](docs/api-reference.md) · [Challenges](CHALLENGES.md) · [Contribution](CONTRIBUTION.md)
 
 
 ---
 
-## What Makes It Different
-
-| Traditional AI 3D Tools | Studio |
-|:---|:---|
-| Generate static, uneditable meshes | Generate **editable parametric systems** |
-| Black-box generation — no explanation | Every step **logged, explained, reversible** |
-| One-shot, hope for the best | **Autonomous iteration** with objective scoring |
-| Manual editing in another tool | **Natural language editing** of any parameter |
-| No quality measurement | **Objective scoring** — proportion, symmetry, features, params |
-| Fail silently on bad geometry | **Auto-healing** — fillet errors retry without fillets |
-
----
 
 ## Architecture
 
-### Multi-Agent Pipeline
+### Agent Pipeline
 
 ```mermaid
 flowchart TD
-    A["🖊️ User Input\ntext prompt or image"] --> B
+    A["🖊️ User Input\ntext prompt or image"] -> B
 
-    B["🤖 Agent 1 · Nemotron\nNVIDIA NIM\nIntent Parser\nguided_json constrained decoding\n~$0.0001 / call"] --> C
+    B["Nemotron\nNVIDIA NIM\nIntent Parser\nguided_json constrained decoding\n~$0.0001 / call"] -> C
 
-    C["🧠 Agent 2 · Claude Logic\nAnthropic\nTree Builder\n3–12 node parametric graph\n~$0.002 / call"] --> D
+    C["Claude Logic\nAnthropic\nTree Builder\n3–12 node parametric graph\n~$0.002 / call"] -> D
 
-    D["💻 Agent 3 · Claude Code\nAnthropic\nCode Generator\nBuild123d Python with math & loops\n~$0.003 / call"] --> E
+    D["Claude Code\nAnthropic\nCode Generator\nBuild123d Python with math & loops\n~$0.003 / call"] -> E
 
-    E["⚙️ Build123d Compiler\nOpenCascade BREP kernel\nPython → Binary STL\nAuto-heals fillet failures\n$0 local execution"] --> F
+    E["Build123d Compiler\nOpenCascade BREP kernel\nPython → Binary STL\nAuto-heals fillet failures\n$0 local execution"] -> F
 
-    F["📊 Agent 4 · Scoring Engine\nDeterministic algorithms\nProportion · Symmetry · Features · Params\nDrives iteration loop\n$0 no LLM"] --> G
+    F["Scoring Engine\nDeterministic algorithms\nProportion · Symmetry · Features · Params\nDrives iteration loop\n$0 no LLM"] -> G
 
     G["🎨 Babylon.js Viewport\nReal-time 3D render + STL export"] 
 
@@ -72,18 +51,18 @@ flowchart LR
     style PIPE fill:#6B46C1,color:#fff
 ```
 
-> **Key insight:** The VLM only handles *perception* (Stage 2). The prompt is assembled deterministically (Stage 3) — no LLM hallucinating geometry specs.
+> **Note:** The VLM only handles *perception* (Stage 2). The prompt is assembled deterministically (Stage 3) — no LLM hallucinating geometry specs.
 
 ```
-Image (photo/sketch/render)
-    │
-    ▼
+                  Image
+                   │
+                   ▼
 ┌──────────────────────────────────────┐
 │  Stage 1.1: Preprocessing (sharp)    │
 │  • Resize to max 1024px              │
 │  • Convert to JPEG 85%               │
 │  • Normalize for VLM consumption     │
-└──────────────────┬───────────────────┘
+└──────────────────────────────────────┘
                    │
                    ▼
 ┌──────────────────────────────────────┐
@@ -95,18 +74,19 @@ Image (photo/sketch/render)
 │    - shape parameters                │
 │    - feature detection               │
 │    - symmetry analysis               │
-└──────────────────┬───────────────────┘
-                   │ DIR JSON
+└──────────────────────────────────────┘
+                   │ 
                    ▼
 ┌──────────────────────────────────────┐
 │  Stage 3: DIR → Deterministic Prompt │
 │  • No LLM needed — pure templates    │
 │  • Family → natural language         │
 │  • Features → parameter specs        │
-└──────────────────┬───────────────────┘
-                   │ Text prompt
+└──────────────────────────────────────┘
+                   │ 
                    ▼
-           Existing 4-agent pipeline
+            Agent Pipeline
+
 ```
 
 ### Tech Stack
@@ -249,26 +229,6 @@ pnpm dev
 | Build123d primitives | 17 (Box, Cylinder, Sphere, Cone, Torus + boolean ops) |
 | DIR geometry families | 7 (revolve, extrude, boxy, cylindrical, gear, bracket, panel) |
 | Vision fallback levels | 4 (NVIDIA Vision → OpenRouter → OpenAI → Gemini) |
-
----
-
-
-## The Category We're Creating
-
-> **Autonomous Parametric Systems** — applying software engineering principles (version control, diff logs, objective scoring, optimization loops, typed constraints) to geometric design.
-
-Not "AI for 3D." Not a mesh generator. A **goal-driven parametric design engine** where AI handles the geometry and humans handle the intent.
-
----
-
-## Roadmap
-
-- [ ] Multi-object scene composition
-- [ ] Collaborative editing (multiplayer)
-- [ ] Plugin system for custom primitives
-- [ ] STEP / IGES export for manufacturing
-- [ ] On-device inference (WebGPU + local LLMs)
-- [ ] CI/CD pipeline with geometry regression tests
 
 ---
 
