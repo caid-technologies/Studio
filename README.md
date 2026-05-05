@@ -16,11 +16,6 @@
 
 [Quick Start](#getting-started) · [Architecture](#architecture) · [API Reference](docs/api-reference.md) · [Challenges](CHALLENGES.md) · [Contributing](CONTRIBUTING.md)
 
----
-
-## What Is Studio?
-
-**AI parametric design studio** — describe a real-world 3D object in words or images, and get an editable parametric model that improves itself. Built on a multi-agent pipeline with BREP geometry, objective scoring, and autonomous iteration.
 
 ---
 
