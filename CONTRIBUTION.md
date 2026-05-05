@@ -1,4 +1,4 @@
-# Contributing to Studio
+# Contribution
 
 ## Quick Start
 
