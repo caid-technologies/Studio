@@ -54,7 +54,7 @@ flowchart LR
 > **Note:** The VLM only handles *perception* (Stage 2). The prompt is assembled deterministically (Stage 3) — no LLM hallucinating geometry specs.
 
 ```
-                  Image
+                Image
                    │
                    ▼
 ┌──────────────────────────────────────┐
@@ -112,11 +112,11 @@ flowchart LR
 ## Features
 
 ### Core Generation
-- **Text → 3D in ~10s** — full 4-agent pipeline with live progress bars and timers
-- **Image → 3D** — drop any photo or sketch, DIR pipeline extracts geometry intent
-- **Parametric Dependency Graph** — every design relationship visualized as a node graph
-- **Natural Language Editing** — "make the teeth sharper", "double the height"
-- **Version History** — every generation saved, restored with one click
+- **Text → CAD**
+- **Image → CAD**
+- **Dependency Graph**
+- **Natural Language Editing**
+- **Version History**
 
 ### Reliability & Auto-Healing
 - **Fillet Auto-Heal** — fillet/chamfer failures auto-retry without fillets; model renders instead of failing
