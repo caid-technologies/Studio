@@ -9,7 +9,6 @@
 [![Anthropic](https://img.shields.io/badge/Anthropic-Claude%20Sonnet-blueviolet)](https://anthropic.com)
 [![Babylon.js](https://img.shields.io/badge/3D-Babylon.js-red)](https://babylonjs.com)
 
-** Editable, self-improving parametric model.**
 
 [Quick Start](#getting-started) · [Architecture](#architecture) · [API Reference](docs/api-reference.md) · [Challenges](CHALLENGES.md) · [Contributing](CONTRIBUTING.md)
 
