@@ -125,9 +125,9 @@ Image (photo/sketch/render)
                    ▼
 ┌──────────────────────────────────────┐
 │  Stage 3: DIR → Deterministic Prompt │
-│  • No LLM needed — pure templates   │
+│  • No LLM needed — pure templates    │
 │  • Family → natural language         │
-│  • Features → parameter specs       │
+│  • Features → parameter specs        │
 └──────────────────┬───────────────────┘
                    │ Text prompt
                    ▼
