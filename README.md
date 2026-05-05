@@ -276,12 +276,6 @@ Not "AI for 3D." Not a mesh generator. A **goal-driven parametric design engine*
 
 ---
 
-## Built At
-
-**Tech@NYU Startup Week 2026 Buildathon** · NVIDIA · AI Automation Track
-
----
-
 ## License
 
-[MIT](LICENSE) © 2026 Studio
+[MIT](LICENSE) © 2026 Caid Technologies
