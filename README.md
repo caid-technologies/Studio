@@ -18,22 +18,6 @@
 
 ---
 
-### Product Demo
-
-<a href="https://youtu.be/F_mKqZDlSyo?si=FL9V3wL2A7wVINph">
-  <img src="https://img.youtube.com/vi/F_mKqZDlSyo/maxresdefault.jpg" alt="Studio Product Demo" width="720" />
-</a>
-
-<p>
-  <a href="https://youtu.be/F_mKqZDlSyo?si=FL9V3wL2A7wVINph">
-    <img src="https://img.shields.io/badge/%E2%96%B6%EF%B8%8F_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Demo on YouTube" />
-  </a>
-</p>
-
-</div>
-
----
-
 ## What Is Studio?
 
 **AI parametric design studio** — describe a real-world 3D object in words or images, and get an editable parametric model that improves itself. Built on a multi-agent pipeline with BREP geometry, objective scoring, and autonomous iteration.
