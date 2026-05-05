@@ -1,5 +1,3 @@
-<div align="center">
-
 # Studio
 
 ### The Future of Parametric Design
