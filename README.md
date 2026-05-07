@@ -180,17 +180,21 @@ Studio/
 git clone https://github.com/roshaninfordham/paragraphai.git studio
 cd studio
 
-# 2. Install JS dependencies
-pnpm install
+#2. Setup up python virtual environment
+python -m venv .venv
+source ./.venv/bin/activate
 
 # 3. Install Python CAD engine
 pip3 install build123d
 
-# 4. Configure environment
+# 4. Install JS dependencies
+pnpm install
+
+# 5. Configure environment
 cp .env.example .env.local
 # Edit .env.local — add your API keys (see below)
 
-# 5. Run
+# 6. Run
 pnpm dev
 # Open http://localhost:3000
 ```
