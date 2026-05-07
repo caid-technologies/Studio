@@ -214,9 +214,3 @@ pnpm dev
 | Build123d primitives | 17 (Box, Cylinder, Sphere, Cone, Torus + boolean ops) |
 | DIR geometry families | 7 (revolve, extrude, boxy, cylindrical, gear, bracket, panel) |
 | Vision fallback levels | 4 (NVIDIA Vision → OpenRouter → OpenAI → Gemini) |
-
----
-
-## License
-
-[MIT](LICENSE) © 2026 Caid Technologies
