@@ -10,22 +10,26 @@ import { devLog } from '@/lib/logger'
 const execFileAsync = promisify(execFile)
 
 // Find python3 binary
-const PYTHON_PATHS = ['python3', 'python', '/usr/bin/python3', '/usr/local/bin/python3', '/opt/homebrew/bin/python3']
 let resolvedPython: string | null | undefined = undefined
 
-async function findPython(): Promise<string | null> {
-  if (resolvedPython !== undefined) return resolvedPython
-  for (const p of PYTHON_PATHS) {
-    try {
-      const { stdout } = await execFileAsync(p, ['--version'], { timeout: 5000 })
-      devLog(`[compile] Found Python at: ${p} — ${stdout.trim()}`)
-      resolvedPython = p
-      return p
-    } catch {}
+async function findPython(): Promise<string> {
+  if (resolvedPython) return resolvedPython
+
+  const pythonPath = process.env.PYTHON_PATH
+  if (!pythonPath) {
+    throw new Error('[compile] PYTHON_PATH environment variable is not set')
   }
-  resolvedPython = null
-  return null
+
+  try {
+    const { stdout } = await execFileAsync(pythonPath, ['--version'], { timeout: 5000 })
+    devLog(`[compile] Using Python at: ${pythonPath} — ${stdout.trim()}`)
+    resolvedPython = pythonPath
+    return pythonPath
+  } catch (err) {
+    throw new Error(`[compile] PYTHON_PATH is set to "${pythonPath}" but is not a valid Python binary: ${(err as Error).message}`)
+  }
 }
+
 
 // Verify build123d is installed
 let build123dVerified = false
